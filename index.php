@@ -1,12 +1,15 @@
 <?php
 
+use App\Admin;
+use App\User;
+
 /**
  * Instancier un objet user et un objet message
  * Envoyer un message par l'utilisateur
  */
 
 require_once('vendor/autoload.php');
-$stephane = new App\User();
+$stephane = new User();
 $message = new App\Message();
 
 $stephane->setName('Stephane')

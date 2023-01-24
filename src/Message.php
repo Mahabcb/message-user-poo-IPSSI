@@ -4,13 +4,14 @@ namespace App;
 
 use App\User;
 use DateTime;
+use App\AbstractUser;
 
 class Message{
     
     private ?int $id;
     private string $content;
     private DateTime $createdAt;
-    private User $author;
+    private AbstractUser $author;
 
     public function __construct()
     {
@@ -90,7 +91,7 @@ class Message{
      *
      * @return  self
      */ 
-    public function setAuthor(User $author)
+    public function setAuthor(AbstractUser $author)
     {
         $this->author = $author;
 
