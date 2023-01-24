@@ -7,7 +7,7 @@ abstract class AbstractUser{
     protected ?int $id;
     protected string $name;
     protected string $location;
-    protected array $roles;
+    protected array $roles = [];
 
     /**
      * Get the value of id

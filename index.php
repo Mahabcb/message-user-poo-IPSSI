@@ -9,7 +9,7 @@ use App\User;
  */
 
 require_once('vendor/autoload.php');
-$stephane = new User();
+$stephane = new Admin();
 $message = new App\Message();
 
 $stephane->setName('Stephane')
