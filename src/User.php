@@ -4,14 +4,14 @@ namespace App;
 
 class User{
 
-    private $id;
-    private $name;
-    private $location;
+    private ?int $id;
+    private string $name;
+    private string $location;
 
     /**
      * Get the value of id
      */ 
-    public function getId()
+    public function getId() : int
     {
         return $this->id;
     }
@@ -21,7 +21,7 @@ class User{
      *
      * @return  self
      */ 
-    public function setId($id)
+    public function setId(int $id) : self
     {
         $this->id = $id;
 
@@ -31,7 +31,7 @@ class User{
     /**
      * Get the value of name
      */ 
-    public function getName()
+    public function getName() : ?string 
     {
         return $this->name;
     }
@@ -41,7 +41,7 @@ class User{
      *
      * @return  self
      */ 
-    public function setName($name)
+    public function setName(string $name) : self
     {
         $this->name = $name;
 
@@ -51,7 +51,7 @@ class User{
     /**
      * Get the value of location
      */ 
-    public function getLocation()
+    public function getLocation() : ?string
     {
         return $this->location;
     }
@@ -61,12 +61,16 @@ class User{
      *
      * @return  self
      */ 
-    public function setLocation($location)
+    public function setLocation(string $location) : self
     {
         $this->location = $location;
 
         return $this;
     }
 
+    public function __toString()
+    {
+        return $this->name;
+    }
  
 }

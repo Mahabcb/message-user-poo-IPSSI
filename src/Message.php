@@ -2,14 +2,15 @@
 
 namespace App;
 
+use App\User;
 use DateTime;
 
 class Message{
     
-    private $id;
-    private $content;
-    private $createdAt;
-    private $author;
+    private ?int $id;
+    private string $content;
+    private DateTime $createdAt;
+    private User $author;
 
     public function __construct()
     {
@@ -89,7 +90,7 @@ class Message{
      *
      * @return  self
      */ 
-    public function setAuthor($author)
+    public function setAuthor(User $author)
     {
         $this->author = $author;
 
@@ -99,9 +100,10 @@ class Message{
     public function sendMessage($content, $author){
         return $this->content . " by " . $this->author;
     }
-
-    public function __toString()
+    
+    public function render()
     {
         return $this->content . " by " . $this->author . " at " . $this->createdAt->format("d/m/Y H:i:s");
+
     }
 }

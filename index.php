@@ -1,16 +1,21 @@
 <?php
+
+/**
+ * Instancier un objet user et un objet message
+ * Envoyer un message par l'utilisateur
+ */
+
 require_once('vendor/autoload.php');
-use App\Message;
+$stephane = new App\User();
+$message = new App\Message();
 
-$user = (new App\User())
-     ->setName("John Doe")
-     ->setLocation("Paris");
+$stephane->setName('Stephane')
+          ->setId(1)
+          ->setLocation('Paris');
+$message->setAuthor($stephane)
+          ->setContent('Bonjour je m\'appelle Stéphane');
 
+dump($message);
+dump($stephane);
 
-$message = new Message();
-$author = $user->getName();
-$content = $message->setContent("Hello World");
-$message->setAuthor($author);
-
-
-print_r($message->sendMessage($content, $author));
+echo $message->render();
