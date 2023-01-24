@@ -16,12 +16,13 @@ class Message{
     public function __construct()
     {
         $this->createdAt = new DateTime("Europe/Paris");
+        $this->author = new User();
     }
 
     /**
      * Get the value of id
      */ 
-    public function getId()
+    public function getId() : ?int
     {
         return $this->id;
     }
@@ -31,7 +32,7 @@ class Message{
      *
      * @return  self
      */ 
-    public function setId($id)
+    public function setId($id) : self 
     {
         $this->id = $id;
 
@@ -41,7 +42,7 @@ class Message{
     /**
      * Get the value of content
      */ 
-    public function getContent()
+    public function getContent() : ?string
     {
         return $this->content;
     }
@@ -51,7 +52,7 @@ class Message{
      *
      * @return  self
      */ 
-    public function setContent($content)
+    public function setContent($content) : self
     {
         $this->content = $content;
 
@@ -61,7 +62,7 @@ class Message{
     /**
      * Get the value of createdAt
      */ 
-    public function getCreatedAt()
+    public function getCreatedAt() : ?DateTime
     {
         return $this->createdAt;
     }
@@ -71,7 +72,7 @@ class Message{
      *
      * @return  self
      */ 
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt($createdAt) : self
     {
         $this->createdAt = $createdAt;
 
@@ -81,7 +82,7 @@ class Message{
     /**
      * Get the value of author
      */ 
-    public function getAuthor()
+    public function getAuthor() : ?AbstractUser
     {
         return $this->author;
     }
@@ -97,14 +98,9 @@ class Message{
 
         return $this;
     }
-
-    public function sendMessage($content, $author){
-        return $this->content . " by " . $this->author;
-    }
     
     public function render()
     {
         return $this->content . " by " . $this->author . " at " . $this->createdAt->format("d/m/Y H:i:s");
-
     }
 }

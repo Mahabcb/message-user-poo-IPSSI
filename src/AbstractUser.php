@@ -74,4 +74,24 @@ abstract class AbstractUser{
         return $this->name;
     }
  
+
+    /**
+     * Get the value of roles
+     */ 
+    public function getRoles() : array
+    {
+        return $this->roles;
+    }
+
+    /**
+     * Set the value of roles
+     *
+     * @return  self
+     */ 
+    public function setRoles($roles) : self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
 }
